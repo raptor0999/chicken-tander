@@ -1,4 +1,4 @@
-import { Component, Host, Element, Event, EventEmitter, h } from '@stencil/core';
+import { Component, Host, Element, Event, EventEmitter, Prop, h } from '@stencil/core';
 import { Gesture, GestureConfig, createGesture } from '@ionic/core';
 
 @Component({
@@ -6,6 +6,12 @@ import { Gesture, GestureConfig, createGesture } from '@ionic/core';
   styleUrl: 'tinder-card.css'
 })
 export class TinderCard {
+  @Prop()
+  public name: string = "Restaurant Name";
+  @Prop()
+  public description: string = "This is a description";
+  @Prop()
+  public imgURL: string = "https://c8.alamy.com/comp/M6P68R/exterior-generic-restaurant-diner-establishing-photo-day-time-tight-M6P68R.jpg";
 
   @Element() hostElement: HTMLElement;
   @Event() match: EventEmitter;
@@ -55,11 +61,11 @@ export class TinderCard {
     return (
       <Host>
         <div class="header">
-          <img class="avatar" src="https://avatars.io/twitter/joshuamorony" />
+          <img class="avatar" src={this.imgURL} />
         </div>
         <div class="detail">
-          <h2>Josh Morony</h2>
-          <p>Animator of the DOM</p>
+          <h2>{this.name}</h2>
+          <p>{this.description}</p>
         </div>
       </Host>
     );

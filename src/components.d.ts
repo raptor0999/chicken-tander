@@ -15,7 +15,11 @@ export namespace Components {
     'name': string;
   }
   interface AppRoot {}
-  interface AppTinderCard {}
+  interface AppTinderCard {
+    'description': string;
+    'imgURL': string;
+    'name': string;
+  }
 }
 
 declare global {
@@ -59,6 +63,9 @@ declare namespace LocalJSX {
   }
   interface AppRoot {}
   interface AppTinderCard {
+    'description'?: string;
+    'imgURL'?: string;
+    'name'?: string;
     'onMatch'?: (event: CustomEvent<any>) => void;
   }
 
